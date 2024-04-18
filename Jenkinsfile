@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                        sh 'pwd'
                         sh "docker build -t csnkarthik/shippingservice:latest ."
                     }
                 }
@@ -15,6 +16,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
+
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh "docker push csnkarthik/shippingservice:latest "
                     }
