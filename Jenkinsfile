@@ -7,7 +7,7 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
                         sh 'pwd'
-                        sh "docker build -t csnkarthik/shippingservice:latest ."
+                        sh "sudo docker build -t csnkarthik/shippingservice:latest ."
                     }
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
                 script {
 
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push csnkarthik/shippingservice:latest "
+                        sh "sudo docker push csnkarthik/shippingservice:latest "
                     }
                 }
             }
